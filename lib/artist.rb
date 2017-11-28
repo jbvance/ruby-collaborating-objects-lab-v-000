@@ -14,7 +14,6 @@ class Artist
 
   def save
     @@all.push (self)
-    self
   end
 
   def self.all
@@ -22,7 +21,12 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
+    self.find(name) ? self.find(name) : self.create(name)
+  end
 
+  def self.create(name)
+    new_artist = Artist.new(name)
+    new_artist.save
   end
 
 
