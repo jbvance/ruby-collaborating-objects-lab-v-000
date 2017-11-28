@@ -24,7 +24,7 @@ class Artist
 
   def self.find_or_create_by_name(name)
     existing_artist = self.all.find {|artist| artist.name == name }
-    binding.pry
+    #binding.pry
     if existing_artist.nil?
       self.create(name)
     end
