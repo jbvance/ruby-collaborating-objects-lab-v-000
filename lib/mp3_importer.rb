@@ -6,8 +6,13 @@ class MP3Importer
   end
 
   def files
-    Dir["#{@path}/*.mp3"].collect do |file|
+    @files ||= Dir["#{@path}/*.mp3"].collect do |file|
       File.basename file
     end
+  end
+
+  def import
+    files = self.files
+
   end
 end
