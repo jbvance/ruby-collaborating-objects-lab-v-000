@@ -1,6 +1,6 @@
 class Song
 
-  attr_accessor :name, :artist, :genre
+  attr_accessor :name, :artist
 
   def initialize(name)
     @name = name
@@ -10,11 +10,13 @@ class Song
     array = filename.split(" - ")
     name = array[1]
     artist = array[0]
-    genre = array[2]
 
-    song  = self.new(filename)
-    song.name = name
-    song.artist = Artist.new(artist)
-    song.genre = genre
+    song  = self.new(name)
+    song.artist_name = artist
+  end
+
+  def artist_name=(name)
+    self.artist = Artist.find_or_create_by_name(name)
+    artist.add_song(self)
   end
 end
