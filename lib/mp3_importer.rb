@@ -4,4 +4,8 @@ class MP3Importer
   def initialize(path)
     @path = path
   end
+
+  def files
+    Dir["#{@path}/*.mpe"]
+  end
 end
