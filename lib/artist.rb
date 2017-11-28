@@ -23,8 +23,8 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    existing_artist = self.all.find {|artist| artist.name == name }
     binding.pry
+    existing_artist = self.all.find {|artist| artist.name == name }
     if existing_artist.nil?
       self.create(name)
     else
