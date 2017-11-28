@@ -27,6 +27,8 @@ class Artist
     #binding.pry
     if existing_artist.nil?
       self.create(name)
+    else
+      existing_artist
     end
   end
 
