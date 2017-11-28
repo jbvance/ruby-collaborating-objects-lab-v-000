@@ -23,13 +23,11 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    binding.pry
-    existing_artist = self.all.find {|artist| artist.name == name }
-    if existing_artist.nil?
-      self.create(name)
-    else
-      existing_artist
-    end
+    self.find(name) ? self.find(name) : self.create(name)
+  end
+
+  def self.find(name)
+    self.all.find {|artist| artist.name == name }
   end
 
   def self.create(name)
